@@ -36,3 +36,9 @@
   font-size: 1.01rem;
   background-color: rgb(34, 203, 34);
 }
+
+.error{
+  color:red;
+  text-shadow: 0 0 5px red;
+  font-size: 0.7rem;
+}
