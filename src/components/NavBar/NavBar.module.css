@@ -1,0 +1,29 @@
+.container{
+  width: 100vw;
+  background-color: #141414;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonNav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin: 0 10px;
+  font-size: 1.1rem;
+  padding: 10px 15px;
+}
+
+.buttonNav:hover{
+  cursor: pointer;
+  text-shadow: 0 0 5px #fff;
+}
