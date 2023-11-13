@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, {FC, useState, useEffect } from 'react';
 import s from './Form.module.css';
-import Task from '../../interfaces/task';
 
-export default function Form() {
+interface NavBarProps {
+  pushFlag: (flag: string) => void;
+}
+
+const Form:FC<NavBarProps> = ({pushFlag})=>{
   const [tareas, setTareas] = useState<any[]>([]);
 
   useEffect(() => {
@@ -31,11 +34,12 @@ export default function Form() {
   });
 
   const [task, setTask] = useState({
+    pending:true,
     title: '',
     description: '',
   });
 
-  function validation(task: Task) {
+  function validation(task: any) {
     const errors = {
       title: '',
       description: '',
@@ -68,6 +72,7 @@ export default function Form() {
       const datosString = JSON.stringify([...tareas, task]);
       localStorage.setItem('tareas', datosString);
       setTask({
+        pending:true,
         title: '',
         description: '',
       });
@@ -75,6 +80,7 @@ export default function Form() {
         title: '',
         description: '',
       });
+      pushFlag('home')
     }
   }
 
@@ -86,9 +92,11 @@ export default function Form() {
       <label>Descripción</label>
         <textarea className={s.input} name='description' placeholder='Escribe una descripción...' onChange={(e) => handlerInput(e)} />
         {errors.description.length?<p className={s.error}>{errors.description}</p>:null}
-      <button type='submit' className={s.button}>
+      {task.title.length < 1 || task.description.length < 1?null:<button type='submit' className={s.button}>
         CREAR
-      </button>
+      </button>}
     </form>
   );
 }
+
+export default Form;
