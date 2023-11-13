@@ -11,8 +11,8 @@ const NavBar: FC<NavBarProps> = ({ pushFlag }) => {
       <div className={s.nav}>
         <p onClick={()=>pushFlag('home')} className={s.buttonNav}>Inicio</p>
         <p onClick={()=>pushFlag('form')} className={s.buttonNav}>Nueva Tarea</p>
-        <p onClick={()=>pushFlag('form')} className={s.buttonNav}>Finalizado</p>
-        <p onClick={()=>pushFlag('form')} className={s.buttonNav}>Pendientes</p>
+        <p onClick={()=>pushFlag('finished')} className={s.buttonNav}>Finalizado</p>
+        <p onClick={()=>pushFlag('pending')} className={s.buttonNav}>Pendientes</p>
       </div>
     </div>
   )
